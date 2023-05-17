@@ -1,16 +1,15 @@
 import React,{ useRef,useState } from "react";
 
-const DiaryEditor = () => {
-    {/**focus를 통해 react dom에 접근 */}
-    const authorInput = useRef();
-    const contentInput = useRef();
-
-
+const DiaryEditor = ({onCreate}) => {
     const [state,setState] = useState({
         author : "",
         content : "",
         emotion : 1,
 });
+
+const authorInput = useRef();
+const contentInput = useRef();
+
 
 const handleChangeState = (e) => {
     setState({
@@ -31,7 +30,14 @@ const handleSubmit = () => {
         contentInput.current.focus();
         return ;
     }
+    onCreate(state.author, state.content, state.emotion);
     alert("저장 성공");
+
+    setState({
+        author : "",
+        content : "",
+        emotion : 1,
+    });
 };
 
 
