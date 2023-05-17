@@ -1,4 +1,4 @@
-import DiaryItem from "./DiaryItem"
+import DiaryItem from './DiaryItem'
 
 const DiaryList = ({onEdit,onRemove,diaryList}) => {
     return (
